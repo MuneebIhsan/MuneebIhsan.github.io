@@ -1,0 +1,113 @@
+name: Cache portfolio game media
+
+on:
+  push:
+    paths:
+      - ".github/workflows/cache-game-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cache-media:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download game icons and screenshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/games/scary-step-mother assets/games/gaming-cafe assets/games/crowd-escape assets/games/tap-arrows
+
+          download() {
+            curl --fail --location --retry 3 --retry-delay 2 --silent --show-error "$1" -o "$2"
+          }
+
+          download "https://play-lh.googleusercontent.com/PDLoeVp5G49MNjpQa7PSG0LEZB66bBLV3OiXUIlKSBM65wM9ngJyRV4TVVy6POUDXiWLwX5urzTmMYN6v7_9MQ=w240-h480" "assets/games/scary-step-mother/icon.jpg"
+          download "https://play-lh.googleusercontent.com/8ngS64CX6KrQwtAFft959FFf880UQzLtPixqyH1hIEztxIHNkOPkGo2AveF0eABCccEhKzwtKybrP02YY8FC14M=w526-h296" "assets/games/scary-step-mother/01.jpg"
+          download "https://play-lh.googleusercontent.com/N8xHGFSQwXEwdXc8ntt7yTasmmVBu7MxLDQSMIAnUPdIKgSjlAosaqBzc7Y5fwfmxFkuwxJwZSTYFPDUX-KbBA=w526-h296" "assets/games/scary-step-mother/02.jpg"
+          download "https://play-lh.googleusercontent.com/VByGeO0xw5XUn6eXeFDz6Vsilk5RDJfhKK1V__kpz3v-k0JZp5tS6A1aLpy9fKdAgA9wiDeCCm8Htzq2A3tYKA=w526-h296" "assets/games/scary-step-mother/03.jpg"
+          download "https://play-lh.googleusercontent.com/gIz1vC9rKXEKic48LzIrCG3OyDS3_Qsm_yD5PTyRvbZvUCTKDjMEqJjNeytEMZ1zjcnuOv_jyO2RX0kZSAUpgQ=w526-h296" "assets/games/scary-step-mother/04.jpg"
+          download "https://play-lh.googleusercontent.com/ETVWwzenvSj-Rq3LMiqonwg5ts1767wLDRUrmfcbvx3FQ6j0sDrVM7iO87HtVE5E327FCHjstlfhwxSAYPHhVQ=w526-h296" "assets/games/scary-step-mother/05.jpg"
+          download "https://play-lh.googleusercontent.com/yWCY5dejHEXJvL4e8PDLx2xrJI6h3Dkv7Q9DRFGAwibegEGcDEHqyzTbAP3NXqkRh7DYxgAeL0oDPoJujlvS-A=w526-h296" "assets/games/scary-step-mother/06.jpg"
+
+          download "https://play-lh.googleusercontent.com/G_dvEyj6lJuFM1E1OYwRmWTaEXL460RZm6XX6NM-6KfQATrKqZ-UauZr1Ex4G4CLkSVGLj6qLw9M-pz0pOZE=w240-h480" "assets/games/gaming-cafe/icon.jpg"
+          download "https://play-lh.googleusercontent.com/NsxBIwH6ImkogzP2tRmLgY8s_UFKUOhuHfaer9AcveoKQ0fvjJa--pDpTBdbngU-onR-KUZCxNl3AHA2xrZN8w=w526-h296" "assets/games/gaming-cafe/01.jpg"
+          download "https://play-lh.googleusercontent.com/A0oSO9XmVAqTCZQlOSsqGzlP1bNY74XevR-_GVfaaSrXLeEN48oA28P_likvHh8GScM6sxjnJBdnROn5Ea42Uw=w526-h296" "assets/games/gaming-cafe/02.jpg"
+          download "https://play-lh.googleusercontent.com/yFASZ5qxrgbhF6u7bwj3_qjuQEPFDMcHBZ3ejgWYLuCPyW4jlWm556QARji6dFlmZYE0Mua0lUWGgfrn-7b5v0Q=w526-h296" "assets/games/gaming-cafe/03.jpg"
+          download "https://play-lh.googleusercontent.com/yQ6Dhg_6gf2eIBM_ZJolL73CfDdR7jTpJD9uzEa0gSe40NTOk4mMqi0Z4fF1DkH4R8A6gjSkpKodvQC54njPtgU=w526-h296" "assets/games/gaming-cafe/04.jpg"
+
+          download "https://play-lh.googleusercontent.com/V8U7mzMeOV1f2tcHwo7UIfDvzPf3d4qcEV-s4pf1_U9wod3nfrnxK7_J47gxgdxixKxsPRIfPUrtlfLjva0s0A=w240-h480" "assets/games/crowd-escape/icon.jpg"
+          download "https://play-lh.googleusercontent.com/_rtv7vNGUiqXxdm36ohMK_2b0906IoJRL5GPZh0wATJDTAnZcQgEtY_kchaW7_ILbixHp_0T4tUk4MDcYaft=w526-h296" "assets/games/crowd-escape/01.jpg"
+          download "https://play-lh.googleusercontent.com/rJ6yzT-hsst631Kj53oDvnHOEmjNhKTBadqRWMotoAoJdbFVTDMi4MB5_KzBRjdC5pc0zL3OR-Xs-761rMzAMA=w526-h296" "assets/games/crowd-escape/02.jpg"
+          download "https://play-lh.googleusercontent.com/bRIGJ_lUhoZLEzOidP5W1k1RkmLrPuKQC9575pzOTq-T_o3HSYf9NeehKflotgY3LEqfsoei7Uydz8iN4KeO=w526-h296" "assets/games/crowd-escape/03.jpg"
+          download "https://play-lh.googleusercontent.com/xsFJDeoUV3Sd--4ll1xu464hP64d9ogQLP-DTuA2RzYkOw1ozQvUkLM_EGsnGNxA630N1PAqlwoTyfYU2c_qYQ=w526-h296" "assets/games/crowd-escape/04.jpg"
+          download "https://play-lh.googleusercontent.com/Rqgs9jeUyazNginrUN9LOFZQ8mTIk8YCQEfAkY3O3dcDZjve40Gxr_VE2Csd_39f58-3aO1cutBDwDcpfXh9=w526-h296" "assets/games/crowd-escape/05.jpg"
+          download "https://play-lh.googleusercontent.com/8WZCwwe0jK2QcwOqQRZ5UiiHk-0wElIgTWGHeLVMX0zX_n626XTVNlCzPeX3U0mDqgmE2E9OuUl1opegFGZC_A=w526-h296" "assets/games/crowd-escape/06.jpg"
+
+          download "https://play-lh.googleusercontent.com/v6RVv1xjpR8IoOZNS9RXrMCsHq9eJf1AZf32tKU-GuLRfCeftbJ3HDek7uPf_a-Yy5t3nz64OVubpXg1EsOm=w240-h480" "assets/games/tap-arrows/icon.jpg"
+          download "https://play-lh.googleusercontent.com/q9pZF3F8gJBV_veyiEc9QlTrTv4TIlUS9vm2GSECt-eSr-uOCnbaL9I8lLmYj4iVucVCLYzLUFc0QDRbDU5wkQ=w526-h296" "assets/games/tap-arrows/01.jpg"
+          download "https://play-lh.googleusercontent.com/m0lcdKoR65tuRc4egnxkh8GJBKOFM07flT7UraooK-BeVHSMSGrE7GTszDDyB_7RqLJCtJ2vyRlzxl6PYSI0ANc=w526-h296" "assets/games/tap-arrows/02.jpg"
+          download "https://play-lh.googleusercontent.com/B0OFBG3nIKFAcw-gzf0sNtcPL7MdPQOtbMoX67xQXBgivmbBCjdttJJCeW1N4c_EjhMclN0D66EROkl1O0xhyg=w526-h296" "assets/games/tap-arrows/03.jpg"
+          download "https://play-lh.googleusercontent.com/HPNeE1o2GxZgkf4QeoX89fSFbh71XMWmiGGVk0nilMWc04gh1kSm-Ho7iqreZS2lB_CFK6xQwQER3ogaKJTgrA=w526-h296" "assets/games/tap-arrows/04.jpg"
+          download "https://play-lh.googleusercontent.com/bEaLE1etxZet0529hj7t2qzTH8WcZsXmrcyhVT52OP62E9BJYcgLtjQ0U55Ltl0zEyq8GtAESymtgsenYSf1cg=w526-h296" "assets/games/tap-arrows/05.jpg"
+          download "https://play-lh.googleusercontent.com/sKC4Kb57jHA9ZBm53-70W-vKwj8k2kf099D_A4t6EpUlQpb9_IgJzReyptthcxkCPaTtijFG9oj7zXw7PO5WMgg=w526-h296" "assets/games/tap-arrows/06.jpg"
+
+      - name: Switch portfolio to local image paths
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("index.html")
+          html = path.read_text(encoding="utf-8")
+
+          replacements = {
+            "https://play-lh.googleusercontent.com/PDLoeVp5G49MNjpQa7PSG0LEZB66bBLV3OiXUIlKSBM65wM9ngJyRV4TVVy6POUDXiWLwX5urzTmMYN6v7_9MQ=w240-h480": "assets/games/scary-step-mother/icon.jpg",
+            "https://play-lh.googleusercontent.com/8ngS64CX6KrQwtAFft959FFf880UQzLtPixqyH1hIEztxIHNkOPkGo2AveF0eABCccEhKzwtKybrP02YY8FC14M=w526-h296": "assets/games/scary-step-mother/01.jpg",
+            "https://play-lh.googleusercontent.com/N8xHGFSQwXEwdXc8ntt7yTasmmVBu7MxLDQSMIAnUPdIKgSjlAosaqBzc7Y5fwfmxFkuwxJwZSTYFPDUX-KbBA=w526-h296": "assets/games/scary-step-mother/02.jpg",
+            "https://play-lh.googleusercontent.com/VByGeO0xw5XUn6eXeFDz6Vsilk5RDJfhKK1V__kpz3v-k0JZp5tS6A1aLpy9fKdAgA9wiDeCCm8Htzq2A3tYKA=w526-h296": "assets/games/scary-step-mother/03.jpg",
+            "https://play-lh.googleusercontent.com/gIz1vC9rKXEKic48LzIrCG3OyDS3_Qsm_yD5PTyRvbZvUCTKDjMEqJjNeytEMZ1zjcnuOv_jyO2RX0kZSAUpgQ=w526-h296": "assets/games/scary-step-mother/04.jpg",
+            "https://play-lh.googleusercontent.com/ETVWwzenvSj-Rq3LMiqonwg5ts1767wLDRUrmfcbvx3FQ6j0sDrVM7iO87HtVE5E327FCHjstlfhwxSAYPHhVQ=w526-h296": "assets/games/scary-step-mother/05.jpg",
+            "https://play-lh.googleusercontent.com/yWCY5dejHEXJvL4e8PDLx2xrJI6h3Dkv7Q9DRFGAwibegEGcDEHqyzTbAP3NXqkRh7DYxgAeL0oDPoJujlvS-A=w526-h296": "assets/games/scary-step-mother/06.jpg",
+            "https://play-lh.googleusercontent.com/G_dvEyj6lJuFM1E1OYwRmWTaEXL460RZm6XX6NM-6KfQATrKqZ-UauZr1Ex4G4CLkSVGLj6qLw9M-pz0pOZE=w240-h480": "assets/games/gaming-cafe/icon.jpg",
+            "https://play-lh.googleusercontent.com/NsxBIwH6ImkogzP2tRmLgY8s_UFKUOhuHfaer9AcveoKQ0fvjJa--pDpTBdbngU-onR-KUZCxNl3AHA2xrZN8w=w526-h296": "assets/games/gaming-cafe/01.jpg",
+            "https://play-lh.googleusercontent.com/A0oSO9XmVAqTCZQlOSsqGzlP1bNY74XevR-_GVfaaSrXLeEN48oA28P_likvHh8GScM6sxjnJBdnROn5Ea42Uw=w526-h296": "assets/games/gaming-cafe/02.jpg",
+            "https://play-lh.googleusercontent.com/yFASZ5qxrgbhF6u7bwj3_qjuQEPFDMcHBZ3ejgWYLuCPyW4jlWm556QARji6dFlmZYE0Mua0lUWGgfrn-7b5v0Q=w526-h296": "assets/games/gaming-cafe/03.jpg",
+            "https://play-lh.googleusercontent.com/yQ6Dhg_6gf2eIBM_ZJolL73CfDdR7jTpJD9uzEa0gSe40NTOk4mMqi0Z4fF1DkH4R8A6gjSkpKodvQC54njPtgU=w526-h296": "assets/games/gaming-cafe/04.jpg",
+            "https://play-lh.googleusercontent.com/V8U7mzMeOV1f2tcHwo7UIfDvzPf3d4qcEV-s4pf1_U9wod3nfrnxK7_J47gxgdxixKxsPRIfPUrtlfLjva0s0A=w240-h480": "assets/games/crowd-escape/icon.jpg",
+            "https://play-lh.googleusercontent.com/_rtv7vNGUiqXxdm36ohMK_2b0906IoJRL5GPZh0wATJDTAnZcQgEtY_kchaW7_ILbixHp_0T4tUk4MDcYaft=w526-h296": "assets/games/crowd-escape/01.jpg",
+            "https://play-lh.googleusercontent.com/rJ6yzT-hsst631Kj53oDvnHOEmjNhKTBadqRWMotoAoJdbFVTDMi4MB5_KzBRjdC5pc0zL3OR-Xs-761rMzAMA=w526-h296": "assets/games/crowd-escape/02.jpg",
+            "https://play-lh.googleusercontent.com/bRIGJ_lUhoZLEzOidP5W1k1RkmLrPuKQC9575pzOTq-T_o3HSYf9NeehKflotgY3LEqfsoei7Uydz8iN4KeO=w526-h296": "assets/games/crowd-escape/03.jpg",
+            "https://play-lh.googleusercontent.com/xsFJDeoUV3Sd--4ll1xu464hP64d9ogQLP-DTuA2RzYkOw1ozQvUkLM_EGsnGNxA630N1PAqlwoTyfYU2c_qYQ=w526-h296": "assets/games/crowd-escape/04.jpg",
+            "https://play-lh.googleusercontent.com/Rqgs9jeUyazNginrUN9LOFZQ8mTIk8YCQEfAkY3O3dcDZjve40Gxr_VE2Csd_39f58-3aO1cutBDwDcpfXh9=w526-h296": "assets/games/crowd-escape/05.jpg",
+            "https://play-lh.googleusercontent.com/8WZCwwe0jK2QcwOqQRZ5UiiHk-0wElIgTWGHeLVMX0zX_n626XTVNlCzPeX3U0mDqgmE2E9OuUl1opegFGZC_A=w526-h296": "assets/games/crowd-escape/06.jpg",
+            "https://play-lh.googleusercontent.com/v6RVv1xjpR8IoOZNS9RXrMCsHq9eJf1AZf32tKU-GuLRfCeftbJ3HDek7uPf_a-Yy5t3nz64OVubpXg1EsOm=w240-h480": "assets/games/tap-arrows/icon.jpg",
+            "https://play-lh.googleusercontent.com/q9pZF3F8gJBV_veyiEc9QlTrTv4TIlUS9vm2GSECt-eSr-uOCnbaL9I8lLmYj4iVucVCLYzLUFc0QDRbDU5wkQ=w526-h296": "assets/games/tap-arrows/01.jpg",
+            "https://play-lh.googleusercontent.com/m0lcdKoR65tuRc4egnxkh8GJBKOFM07flT7UraooK-BeVHSMSGrE7GTszDDyB_7RqLJCtJ2vyRlzxl6PYSI0ANc=w526-h296": "assets/games/tap-arrows/02.jpg",
+            "https://play-lh.googleusercontent.com/B0OFBG3nIKFAcw-gzf0sNtcPL7MdPQOtbMoX67xQXBgivmbBCjdttJJCeW1N4c_EjhMclN0D66EROkl1O0xhyg=w526-h296": "assets/games/tap-arrows/03.jpg",
+            "https://play-lh.googleusercontent.com/HPNeE1o2GxZgkf4QeoX89fSFbh71XMWmiGGVk0nilMWc04gh1kSm-Ho7iqreZS2lB_CFK6xQwQER3ogaKJTgrA=w526-h296": "assets/games/tap-arrows/04.jpg",
+            "https://play-lh.googleusercontent.com/bEaLE1etxZet0529hj7t2qzTH8WcZsXmrcyhVT52OP62E9BJYcgLtjQ0U55Ltl0zEyq8GtAESymtgsenYSf1cg=w526-h296": "assets/games/tap-arrows/05.jpg",
+            "https://play-lh.googleusercontent.com/sKC4Kb57jHA9ZBm53-70W-vKwj8k2kf099D_A4t6EpUlQpb9_IgJzReyptthcxkCPaTtijFG9oj7zXw7PO5WMgg=w526-h296": "assets/games/tap-arrows/06.jpg",
+          }
+
+          for old, new in replacements.items():
+            html = html.replace(old, new)
+
+          path.write_text(html, encoding="utf-8")
+
+      - name: Commit cached media
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assets/games
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Cache game media locally"
+          git push
