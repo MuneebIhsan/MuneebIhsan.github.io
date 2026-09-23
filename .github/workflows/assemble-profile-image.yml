@@ -1,0 +1,65 @@
+name: Assemble profile hero image
+
+on:
+  push:
+    paths:
+      - ".github/workflows/assemble-profile-image.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble JPEG
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets
+          cat .profile_tmp/part0.txt .profile_tmp/part1.txt .profile_tmp/part2.txt .profile_tmp/part3.txt | base64 -d > assets/profile-hero.jpg
+          test -s assets/profile-hero.jpg
+          file assets/profile-hero.jpg
+          python - <<'PY'
+          from PIL import Image
+          im = Image.open("assets/profile-hero.jpg")
+          im.verify()
+          print("Verified profile image")
+          PY
+
+      - name: Update portfolio references
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          path = Path("index.html")
+          html = path.read_text(encoding="utf-8")
+
+          html = re.sub(
+              r'(<img\s+class="hero-photo"\s+src=")[^"]+(")',
+              r'\1assets/profile-hero.jpg\2',
+              html,
+              count=1
+          )
+
+          html = html.replace(
+              "https://muneebihsan.github.io/assets/profile.jpg",
+              "https://muneebihsan.github.io/assets/profile-hero.jpg"
+          )
+
+          path.write_text(html, encoding="utf-8")
+
+      - name: Commit fixed profile image
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .profile_tmp
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assets/profile-hero.jpg .profile_tmp
+          git commit -m "Fix profile hero image asset"
+          git push
