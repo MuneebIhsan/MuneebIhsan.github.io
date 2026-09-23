@@ -20,7 +20,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p assets
-          cat .profile_tmp/part0.txt .profile_tmp/part1.txt .profile_tmp/part2.txt .profile_tmp/part3.txt | base64 -d > assets/profile-hero.jpg
+          cat .profile_tmp/part0.txt .profile_tmp/part1.txt .profile_tmp/part2a.txt .profile_tmp/part2b.txt .profile_tmp/part2c.txt .profile_tmp/part3.txt | base64 -d > assets/profile-hero.jpg
           test -s assets/profile-hero.jpg
           file assets/profile-hero.jpg
           python - <<'PY'
