@@ -1489,7 +1489,7 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-controls="mainNav" aria-expanded="false"><span aria-hidden="true">☰</span></button>
     </div>
   </header>
 
@@ -1554,7 +1554,7 @@
               class="hero-photo"
               src="assets/profile-hero.jpg"
               alt="Muneeb Ihsan"
-              fetchpriority="high"
+              fetchpriority="high" width="420" height="525" decoding="async"
             />
             <div class="photo-badge">Unity • C#</div>
           </div>
@@ -2617,6 +2617,10 @@
       </div>
     </section>
   </main>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
+    <span aria-hidden="true">↑</span>
+  </button>
 
   <a
     class="whatsapp-float"
