@@ -442,6 +442,82 @@
       letter-spacing: .02em;
     }
 
+    /* CASE STUDY POLISH */
+    .project-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      max-width: 900px;
+      margin-top: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 16px;
+      background: rgba(255,255,255,.06);
+    }
+
+    .project-stat {
+      min-width: 0;
+      padding: 14px 16px;
+      background: rgba(11,15,20,.76);
+    }
+
+    .project-stat-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: .67rem;
+      font-weight: 850;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .project-stat strong {
+      display: block;
+      overflow: hidden;
+      color: var(--text);
+      font-size: .88rem;
+      line-height: 1.35;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .featured-project-top {
+      isolation: isolate;
+    }
+
+    .featured-project-top > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .featured-project-top::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(124,240,198,.028), transparent 40%),
+        radial-gradient(circle at 14% 35%, rgba(141,184,255,.038), transparent 22rem);
+    }
+
+    .project-meta {
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .project-meta span {
+      padding: 6px 9px;
+      font-size: .78rem;
+      background: rgba(255,255,255,.025);
+    }
+
+    .contribution-box {
+      background:
+        linear-gradient(160deg, rgba(124,240,198,.025), transparent 48%),
+        rgba(255,255,255,.018);
+    }
+
     .whatsapp-float {
       position: fixed;
       right: 22px;
@@ -1015,6 +1091,19 @@
         padding: 22px;
       }
 
+      .project-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-radius: 14px;
+      }
+
+      .project-stat {
+        padding: 12px;
+      }
+
+      .project-stat strong {
+        font-size: .8rem;
+      }
+
       .game-gallery,
       .testimonials-grid,
       .services-grid,
@@ -1482,7 +1571,12 @@
                 <span>Published on Google Play</span>
               </div>
 
-              <div class="role-badge">End-to-End Unity Developer</div>
+              <div class="project-stat-grid" aria-label="Scary Step Mother Escape Game project summary">
+                <div class="project-stat"><span class="project-stat-label">Role</span><strong>End-to-End Developer</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Reach</span><strong>Published Title</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Platform</span><strong>Android</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Status</span><strong>Google Play</strong></div>
+              </div>
             </div>
           </div>
 
@@ -1627,7 +1721,12 @@
                 <span>Published on Google Play</span>
               </div>
 
-              <div class="role-badge">End-to-End Unity Developer</div>
+              <div class="project-stat-grid" aria-label="Gaming Cafe Internet Simulator project summary">
+                <div class="project-stat"><span class="project-stat-label">Role</span><strong>End-to-End Developer</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Reach</span><strong>100K+ Downloads</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Platform</span><strong>Android</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Status</span><strong>Google Play</strong></div>
+              </div>
             </div>
           </div>
 
@@ -1749,7 +1848,12 @@
                 <span>Published on Google Play</span>
               </div>
 
-              <div class="role-badge">Unity Developer</div>
+              <div class="project-stat-grid" aria-label="Crowd Escape Bus Puzzle project summary">
+                <div class="project-stat"><span class="project-stat-label">Role</span><strong>Unity Developer</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Reach</span><strong>500K+ Downloads</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Platform</span><strong>Android</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Status</span><strong>Google Play</strong></div>
+              </div>
             </div>
           </div>
 
@@ -1889,7 +1993,12 @@
                 <span>Published on Google Play</span>
               </div>
 
-              <div class="role-badge">Unity Developer</div>
+              <div class="project-stat-grid" aria-label="Tap Arrows Gallery project summary">
+                <div class="project-stat"><span class="project-stat-label">Role</span><strong>Unity Developer</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Reach</span><strong>1M+ Downloads</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Platform</span><strong>Android</strong></div>
+                <div class="project-stat"><span class="project-stat-label">Status</span><strong>Google Play</strong></div>
+              </div>
             </div>
           </div>
 
