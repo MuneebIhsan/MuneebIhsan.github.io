@@ -244,6 +244,141 @@
       font-size: .82rem;
     }
 
+    /* LIGHTBOX GALLERY */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2147483000;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      background: rgba(4,7,10,.88);
+      backdrop-filter: blur(18px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .2s ease, visibility .2s ease;
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .lightbox-dialog {
+      position: relative;
+      width: min(1180px, 100%);
+      max-height: calc(100vh - 56px);
+      display: grid;
+      grid-template-rows: auto minmax(0,1fr) auto;
+      gap: 14px;
+    }
+
+    .lightbox-topbar,
+    .lightbox-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: #dce5ed;
+    }
+
+    .lightbox-title {
+      min-width: 0;
+      overflow: hidden;
+      font-size: .92rem;
+      font-weight: 800;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .lightbox-counter {
+      flex: 0 0 auto;
+      color: #9aa8b6;
+      font-size: .82rem;
+    }
+
+    .lightbox-stage {
+      position: relative;
+      min-height: 240px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 22px;
+      background: #070a0e;
+      box-shadow: 0 30px 90px rgba(0,0,0,.45);
+    }
+
+    .lightbox-image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      max-height: calc(100vh - 180px);
+      object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .lightbox-close,
+    .lightbox-nav {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,.12);
+      color: #f4f7f9;
+      background: rgba(10,14,18,.72);
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-nav:hover {
+      transform: translateY(-1px);
+      border-color: rgba(124,240,198,.35);
+      background: rgba(18,24,31,.92);
+    }
+
+    .lightbox-close {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .lightbox-nav:hover {
+      transform: translateY(-50%) scale(1.03);
+    }
+
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
+
+    .lightbox-hint {
+      color: #7f8b96;
+      font-size: .76rem;
+    }
+
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
     .reviews-section {
       overflow: hidden;
     }
@@ -1239,6 +1374,34 @@
       .services-grid,
       .impact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .lightbox {
+        padding: 14px;
+      }
+
+      .lightbox-dialog {
+        max-height: calc(100vh - 28px);
+      }
+
+      .lightbox-stage {
+        border-radius: 16px;
+      }
+
+      .lightbox-image {
+        max-height: calc(100vh - 150px);
+      }
+
+      .lightbox-nav {
+        width: 44px;
+        height: 44px;
+      }
+
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+
+      .lightbox-hint {
+        display: none;
       }
 
       .reviews-heading {
@@ -2465,6 +2628,27 @@
     <span class="whatsapp-tooltip">Chat on WhatsApp</span>
     <span aria-hidden="true">WA</span>
   </a>
+
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Gameplay screenshot viewer">
+      <div class="lightbox-topbar">
+        <div class="lightbox-title" id="lightboxTitle">Gameplay Screenshot</div>
+        <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close screenshot viewer">×</button>
+      </div>
+
+      <div class="lightbox-stage" id="lightboxStage">
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous screenshot">‹</button>
+        <img class="lightbox-image" id="lightboxImage" src="" alt="" />
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next screenshot">›</button>
+      </div>
+
+      <div class="lightbox-footer">
+        <span class="lightbox-hint">Use ← → keys to navigate • Esc to close</span>
+        <span class="lightbox-counter" id="lightboxCounter">1 / 1</span>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="container footer-wrap">
