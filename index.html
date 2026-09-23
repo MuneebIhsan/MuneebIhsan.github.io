@@ -5,12 +5,212 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio of Muneeb Ihsan, Unity Game Developer specializing in mobile, simulation and open-world games." />
   <title>Muneeb Ihsan | Unity Game Developer</title>
+
+  <!-- Existing site stylesheet -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Extra styles only for the upgraded Featured Project section.
+       Keeping these here means you ONLY need to replace index.html. -->
+  <style>
+    .featured-project {
+      margin-top: 42px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top right, rgba(124,240,198,.08), transparent 32%),
+        var(--card);
+    }
+
+    .featured-project-top {
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 26px;
+      align-items: center;
+      padding: 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .game-icon {
+      width: 128px;
+      height: 128px;
+      border-radius: 26px;
+      object-fit: cover;
+      box-shadow: 0 16px 45px rgba(0,0,0,.28);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .project-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .featured-project h3 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.55rem);
+      line-height: 1.08;
+      letter-spacing: -.03em;
+    }
+
+    .featured-project .project-summary {
+      margin: 0;
+      max-width: 850px;
+      color: var(--muted);
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .project-meta span {
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #c7d2dc;
+      background: rgba(255,255,255,.035);
+      font-size: .84rem;
+    }
+
+    .featured-project-body {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .contribution-box {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .contribution-box h4 {
+      margin: 0 0 16px;
+      color: var(--text);
+      font-size: 1.15rem;
+    }
+
+    .contribution-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .contribution-list li {
+      position: relative;
+      padding-left: 24px;
+      color: var(--muted);
+    }
+
+    .contribution-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .gallery-wrap h4 {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 1.15rem;
+    }
+
+    .game-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .game-gallery a {
+      display: block;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #080b0f;
+    }
+
+    .game-gallery img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .game-gallery a:hover img {
+      transform: scale(1.035);
+      opacity: .94;
+    }
+
+    .gallery-caption {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .other-work-title {
+      margin-top: 62px;
+      margin-bottom: 0;
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 900px) {
+      .featured-project-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .featured-project-top {
+        grid-template-columns: 82px 1fr;
+        gap: 18px;
+        padding: 22px;
+      }
+
+      .game-icon {
+        width: 82px;
+        height: 82px;
+        border-radius: 19px;
+      }
+
+      .featured-project-body {
+        padding: 22px;
+      }
+
+      .game-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="#home">MI<span>.</span></a>
+
       <nav class="nav" id="mainNav">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -18,16 +218,20 @@
         <a href="#work">Work</a>
         <a href="#contact">Contact</a>
       </nav>
+
       <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
     </div>
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero section" id="home">
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">UNITY GAME DEVELOPER</div>
+
           <h1>Muneeb Ihsan</h1>
+
           <p class="hero-lead">
             I build polished mobile gameplay experiences with Unity and C#, with hands-on experience in
             simulation, open-world systems, SDK integrations, monetization and performance optimization.
@@ -35,48 +239,85 @@
 
           <div class="hero-actions">
             <a class="btn primary" href="#work">View My Work</a>
-            <a class="btn secondary" href="assets/Muneeb_Ihsan_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+
+            <a
+              class="btn secondary"
+              href="Muneeb_Ihsan_Resume.pdf"
+              target="_blank"
+              rel="noopener">
+              View Resume
+            </a>
           </div>
 
           <div class="social-row">
             <a href="https://github.com/MuneebIhsan" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/muneeb-ihsan-b13564437" target="_blank" rel="noopener">LinkedIn</a>
+
+            <a
+              href="https://www.linkedin.com/in/muneeb-ihsan-b13564437"
+              target="_blank"
+              rel="noopener">
+              LinkedIn
+            </a>
+
             <a href="mailto:muneebihsan0506@gmail.com">Email</a>
           </div>
         </div>
 
         <div class="hero-card">
           <div class="avatar">MI</div>
-          <div class="status"><span></span> Available for opportunities</div>
+
+          <div class="status">
+            <span></span>
+            Available for opportunities
+          </div>
+
           <div class="quick-info">
-            <div><strong>Location</strong><span>Lahore, Pakistan</span></div>
-            <div><strong>Focus</strong><span>Mobile • Simulation • Open World</span></div>
-            <div><strong>Current Role</strong><span>Unity Developer — Brain Games Studio</span></div>
+            <div>
+              <strong>Location</strong>
+              <span>Lahore, Pakistan</span>
+            </div>
+
+            <div>
+              <strong>Focus</strong>
+              <span>Mobile • Simulation • Open World</span>
+            </div>
+
+            <div>
+              <strong>Current Role</strong>
+              <span>Unity Developer — Brain Games Studio</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container two-col">
         <div>
           <div class="section-kicker">ABOUT</div>
-          <h2>Game development focused on solid systems and smooth mobile performance.</h2>
+
+          <h2>
+            Game development focused on solid systems and smooth mobile performance.
+          </h2>
         </div>
+
         <div class="body-copy">
           <p>
             I am a Unity Game Developer with professional experience building and maintaining mobile games.
             My work includes gameplay systems, UI implementation, SDK integrations, debugging, Android/iOS builds,
             Firebase services and ad monetization.
           </p>
+
           <p>
-            I have worked on simulation and open-world projects, including bus and truck simulator-style games,
-            with a strong focus on stability, optimization and production-ready implementation.
+            I have worked on simulation, open-world and horror projects, including bus and truck simulator-style
+            games, with a strong focus on stability, optimization and production-ready implementation.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- SKILLS -->
     <section class="section alt" id="skills">
       <div class="container">
         <div class="section-kicker">TECH STACK</div>
@@ -85,39 +326,60 @@
         <div class="skill-grid">
           <article class="card">
             <h3>Game Development</h3>
+
             <div class="tags">
-              <span>Unity 3D</span><span>C#</span><span>Gameplay Programming</span><span>Game Mechanics</span>
-              <span>Level Systems</span><span>Open-World Systems</span>
+              <span>Unity 3D</span>
+              <span>C#</span>
+              <span>Gameplay Programming</span>
+              <span>Game Mechanics</span>
+              <span>Level Systems</span>
+              <span>Open-World Systems</span>
             </div>
           </article>
 
           <article class="card">
             <h3>Mobile & Optimization</h3>
+
             <div class="tags">
-              <span>Android</span><span>iOS</span><span>Performance Optimization</span><span>Debugging</span>
-              <span>Gradle</span><span>Build Troubleshooting</span>
+              <span>Android</span>
+              <span>iOS</span>
+              <span>Performance Optimization</span>
+              <span>Debugging</span>
+              <span>Gradle</span>
+              <span>Build Troubleshooting</span>
             </div>
           </article>
 
           <article class="card">
             <h3>Services & Monetization</h3>
+
             <div class="tags">
-              <span>Firebase</span><span>Remote Config</span><span>AdMob</span><span>Unity Ads</span>
-              <span>Mintegral</span><span>SDK Integration</span>
+              <span>Firebase</span>
+              <span>Remote Config</span>
+              <span>AdMob</span>
+              <span>Unity Ads</span>
+              <span>Mintegral</span>
+              <span>SDK Integration</span>
             </div>
           </article>
 
           <article class="card">
             <h3>Workflow</h3>
+
             <div class="tags">
-              <span>Git</span><span>GitHub</span><span>Unity Package Manager</span><span>OOP</span>
-              <span>Bug Fixing</span><span>Production Support</span>
+              <span>Git</span>
+              <span>GitHub</span>
+              <span>Unity Package Manager</span>
+              <span>OOP</span>
+              <span>Bug Fixing</span>
+              <span>Production Support</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- EXPERIENCE -->
     <section class="section" id="experience">
       <div class="container">
         <div class="section-kicker">EXPERIENCE</div>
@@ -126,9 +388,11 @@
         <div class="timeline">
           <article class="timeline-item">
             <div class="timeline-meta">Sep 2025 — Present</div>
+
             <div class="timeline-content">
               <h3>Unity Developer</h3>
               <h4>Brain Games Studio</h4>
+
               <p>
                 Developing and maintaining mobile games in Unity and C#, implementing gameplay systems,
                 UI features, SDK integrations, debugging workflows and mobile optimization.
@@ -138,21 +402,26 @@
 
           <article class="timeline-item">
             <div class="timeline-meta">Jan 2024 — Aug 2025</div>
+
             <div class="timeline-content">
               <h3>Unity Developer</h3>
               <h4>Games Tree</h4>
+
               <p>
                 Worked on simulation-based and open-world mobile games, including bus and truck simulator projects.
-                Built gameplay mechanics, player systems, progression features, integrations and production-ready mobile builds.
+                Built gameplay mechanics, player systems, progression features, integrations and production-ready
+                mobile builds.
               </p>
             </div>
           </article>
 
           <article class="timeline-item">
             <div class="timeline-meta">Sep 2023 — Dec 2023</div>
+
             <div class="timeline-content">
               <h3>Unity Game Development Intern</h3>
               <h4>Mobaso</h4>
+
               <p>
                 Gained hands-on experience with Unity scenes, prefabs, UI, scripts, gameplay programming,
                 debugging and professional mobile game development workflows.
@@ -163,76 +432,262 @@
       </div>
     </section>
 
+    <!-- WORK -->
     <section class="section alt" id="work">
       <div class="container">
         <div class="section-kicker">SELECTED WORK</div>
-        <h2>What I’ve worked on</h2>
+        <h2>Games & Projects</h2>
+
         <p class="section-intro">
-          A portfolio snapshot of the types of systems and game categories I have worked with professionally.
+          Selected production work showing my Unity development, gameplay implementation,
+          mobile optimization and end-to-end release experience.
         </p>
+
+        <!-- FEATURED PROJECT -->
+        <article class="featured-project">
+          <div class="featured-project-top">
+
+            <!-- Official Google Play app icon -->
+            <img
+              class="game-icon"
+              src="https://play-lh.googleusercontent.com/PDLoeVp5G49MNjpQa7PSG0LEZB66bBLV3OiXUIlKSBM65wM9ngJyRV4TVVy6POUDXiWLwX5urzTmMYN6v7_9MQ=w240-h480"
+              alt="Scary Step Mother Escape Game icon"
+              loading="lazy"
+            />
+
+            <div>
+              <div class="project-label">★ Featured Project • Published Game</div>
+
+              <h3>Scary Step Mother Escape Game</h3>
+
+              <p class="project-summary">
+                A 3D horror escape mobile game featuring exploration, puzzle solving, hidden-object gameplay,
+                survival encounters and a haunted-house environment. I worked on this title from the initial
+                development stage all the way through testing, optimization and final Google Play release.
+              </p>
+
+              <div class="project-meta">
+                <span>Unity</span>
+                <span>C#</span>
+                <span>Android</span>
+                <span>3D Horror</span>
+                <span>Mobile Game</span>
+                <span>End-to-End Development</span>
+                <span>Published on Google Play</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="featured-project-body">
+            <div>
+              <div class="contribution-box">
+                <h4>My Contribution</h4>
+
+                <ul class="contribution-list">
+                  <li>Worked on the game from scratch through final production release.</li>
+                  <li>Implemented core gameplay systems, mechanics and player interactions in Unity.</li>
+                  <li>Worked on UI, game flow, scenes and overall gameplay experience.</li>
+                  <li>Integrated required third-party SDKs and mobile services.</li>
+                  <li>Debugged gameplay and technical issues throughout development.</li>
+                  <li>Optimized the project for Android performance and production stability.</li>
+                  <li>Handled build preparation, final testing and Google Play release readiness.</li>
+                </ul>
+
+                <div class="project-actions">
+                  <a
+                    class="btn primary"
+                    href="https://play.google.com/store/apps/details?id=com.bgs.scary.step.mother.escape.game&hl=en"
+                    target="_blank"
+                    rel="noopener">
+                    View on Google Play ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-wrap">
+              <h4>Gameplay Screenshots</h4>
+
+              <div class="game-gallery">
+                <a
+                  href="https://play-lh.googleusercontent.com/8ngS64CX6KrQwtAFft959FFf880UQzLtPixqyH1hIEztxIHNkOPkGo2AveF0eABCccEhKzwtKybrP02YY8FC14M=w526-h296"
+                  target="_blank"
+                  rel="noopener">
+                  <img
+                    src="https://play-lh.googleusercontent.com/8ngS64CX6KrQwtAFft959FFf880UQzLtPixqyH1hIEztxIHNkOPkGo2AveF0eABCccEhKzwtKybrP02YY8FC14M=w526-h296"
+                    alt="Scary Step Mother Escape Game gameplay screenshot 1"
+                    loading="lazy"
+                  />
+                </a>
+
+                <a
+                  href="https://play-lh.googleusercontent.com/N8xHGFSQwXEwdXc8ntt7yTasmmVBu7MxLDQSMIAnUPdIKgSjlAosaqBzc7Y5fwfmxFkuwxJwZSTYFPDUX-KbBA=w526-h296"
+                  target="_blank"
+                  rel="noopener">
+                  <img
+                    src="https://play-lh.googleusercontent.com/N8xHGFSQwXEwdXc8ntt7yTasmmVBu7MxLDQSMIAnUPdIKgSjlAosaqBzc7Y5fwfmxFkuwxJwZSTYFPDUX-KbBA=w526-h296"
+                    alt="Scary Step Mother Escape Game gameplay screenshot 2"
+                    loading="lazy"
+                  />
+                </a>
+
+                <a
+                  href="https://play-lh.googleusercontent.com/VByGeO0xw5XUn6eXeFDz6Vsilk5RDJfhKK1V__kpz3v-k0JZp5tS6A1aLpy9fKdAgA9wiDeCCm8Htzq2A3tYKA=w526-h296"
+                  target="_blank"
+                  rel="noopener">
+                  <img
+                    src="https://play-lh.googleusercontent.com/VByGeO0xw5XUn6eXeFDz6Vsilk5RDJfhKK1V__kpz3v-k0JZp5tS6A1aLpy9fKdAgA9wiDeCCm8Htzq2A3tYKA=w526-h296"
+                    alt="Scary Step Mother Escape Game gameplay screenshot 3"
+                    loading="lazy"
+                  />
+                </a>
+
+                <a
+                  href="https://play-lh.googleusercontent.com/gIz1vC9rKXEKic48LzIrCG3OyDS3_Qsm_yD5PTyRvbZvUCTKDjMEqJjNeytEMZ1zjcnuOv_jyO2RX0kZSAUpgQ=w526-h296"
+                  target="_blank"
+                  rel="noopener">
+                  <img
+                    src="https://play-lh.googleusercontent.com/gIz1vC9rKXEKic48LzIrCG3OyDS3_Qsm_yD5PTyRvbZvUCTKDjMEqJjNeytEMZ1zjcnuOv_jyO2RX0kZSAUpgQ=w526-h296"
+                    alt="Scary Step Mother Escape Game gameplay screenshot 4"
+                    loading="lazy"
+                  />
+                </a>
+
+                <a
+                  href="https://play-lh.googleusercontent.com/ETVWwzenvSj-Rq3LMiqonwg5ts1767wLDRUrmfcbvx3FQ6j0sDrVM7iO87HtVE5E327FCHjstlfhwxSAYPHhVQ=w526-h296"
+                  target="_blank"
+                  rel="noopener">
+                  <img
+                    src="https://play-lh.googleusercontent.com/ETVWwzenvSj-Rq3LMiqonwg5ts1767wLDRUrmfcbvx3FQ6j0sDrVM7iO87HtVE5E327FCHjstlfhwxSAYPHhVQ=w526-h296"
+                    alt="Scary Step Mother Escape Game gameplay screenshot 5"
+                    loading="lazy"
+                  />
+                </a>
+
+                <a
+                  href="https://play-lh.googleusercontent.com/yWCY5dejHEXJvL4e8PDLx2xrJI6h3Dkv7Q9DRFGAwibegEGcDEHqyzTbAP3NXqkRh7DYxgAeL0oDPoJujlvS-A=w526-h296"
+                  target="_blank"
+                  rel="noopener">
+                  <img
+                    src="https://play-lh.googleusercontent.com/yWCY5dejHEXJvL4e8PDLx2xrJI6h3Dkv7Q9DRFGAwibegEGcDEHqyzTbAP3NXqkRh7DYxgAeL0oDPoJujlvS-A=w526-h296"
+                    alt="Scary Step Mother Escape Game gameplay screenshot 6"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+
+              <p class="gallery-caption">
+                Official gameplay media from the published Google Play listing.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- OTHER WORK -->
+        <h3 class="other-work-title">Other Experience</h3>
 
         <div class="work-grid">
           <article class="project-card">
-            <div class="project-index">01</div>
+            <div class="project-index">02</div>
+
             <h3>Simulation Game Systems</h3>
+
             <p>
               Gameplay work for bus and truck simulator-style mobile projects, including player systems,
               progression, interactions and runtime debugging.
             </p>
-            <div class="tags"><span>Unity</span><span>C#</span><span>Simulation</span></div>
-          </article>
 
-          <article class="project-card">
-            <div class="project-index">02</div>
-            <h3>Open-World Mobile Gameplay</h3>
-            <p>
-              Built and maintained gameplay features for open-world mobile experiences with a focus on
-              stability, scalable systems and smooth device performance.
-            </p>
-            <div class="tags"><span>Open World</span><span>Mobile</span><span>Optimization</span></div>
+            <div class="tags">
+              <span>Unity</span>
+              <span>C#</span>
+              <span>Simulation</span>
+            </div>
           </article>
 
           <article class="project-card">
             <div class="project-index">03</div>
+
+            <h3>Open-World Mobile Gameplay</h3>
+
+            <p>
+              Built and maintained gameplay features for open-world mobile experiences with a focus on
+              stability, scalable systems and smooth device performance.
+            </p>
+
+            <div class="tags">
+              <span>Open World</span>
+              <span>Mobile</span>
+              <span>Optimization</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-index">04</div>
+
             <h3>Ads & Firebase Integration</h3>
+
             <p>
               Integrated and troubleshot monetization and backend services including Firebase Remote Config,
               AdMob, Unity Ads and Mintegral.
             </p>
-            <div class="tags"><span>Firebase</span><span>AdMob</span><span>Unity Ads</span><span>Mintegral</span></div>
-          </article>
-        </div>
 
-        <div class="work-note">
-          <strong>Want to add actual games?</strong>
-          Replace these cards with your real game names, screenshots, Play Store/App Store links and project details.
+            <div class="tags">
+              <span>Firebase</span>
+              <span>AdMob</span>
+              <span>Unity Ads</span>
+              <span>Mintegral</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
+    <!-- EDUCATION -->
     <section class="section" id="education">
       <div class="container education-card">
         <div>
           <div class="section-kicker">EDUCATION</div>
+
           <h2>BS Information Technology</h2>
-          <p>University of Management and Technology (UMT), Lahore</p>
+
+          <p>
+            University of Management and Technology (UMT), Lahore
+          </p>
         </div>
-        <div class="education-year">2018 — 2022</div>
+
+        <div class="education-year">
+          2018 — 2022
+        </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section class="section contact-section" id="contact">
       <div class="container contact-card">
         <div>
           <div class="section-kicker">CONTACT</div>
+
           <h2>Let’s build something great.</h2>
+
           <p>
             Open to Unity development opportunities, game projects and technical collaborations.
           </p>
         </div>
+
         <div class="contact-actions">
-          <a class="btn primary" href="mailto:muneebihsan0506@gmail.com">Email Me</a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/muneeb-ihsan-b13564437" target="_blank" rel="noopener">LinkedIn</a>
+          <a
+            class="btn primary"
+            href="mailto:muneebihsan0506@gmail.com">
+            Email Me
+          </a>
+
+          <a
+            class="btn secondary"
+            href="https://www.linkedin.com/in/muneeb-ihsan-b13564437"
+            target="_blank"
+            rel="noopener">
+            LinkedIn
+          </a>
         </div>
       </div>
     </section>
@@ -245,6 +700,7 @@
     </div>
   </footer>
 
+  <!-- Existing site script -->
   <script src="script.js"></script>
 </body>
 </html>
