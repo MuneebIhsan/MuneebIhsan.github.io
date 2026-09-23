@@ -11,7 +11,6 @@
   <link rel="canonical" href="https://muneebihsan.github.io/" />
   <link rel="icon" type="image/jpeg" href="assets/profile.jpg" />
   <link rel="apple-touch-icon" href="assets/profile.jpg" />
-  <link rel="preconnect" href="https://play-lh.googleusercontent.com" crossorigin />
 
   <!-- Open Graph / Social Share -->
   <meta property="og:type" content="website" />
@@ -608,6 +607,388 @@
       }
     }
 
+    /* PREMIUM POLISH V2 */
+    body {
+      background:
+        radial-gradient(circle at 12% 5%, rgba(124,240,198,.055), transparent 28rem),
+        radial-gradient(circle at 88% 14%, rgba(141,184,255,.055), transparent 30rem),
+        var(--bg);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .22;
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.55), transparent 72%);
+    }
+
+    .site-header {
+      top: 12px;
+      width: min(var(--max), calc(100% - 28px));
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 18px;
+      background: rgba(11,15,20,.72);
+      box-shadow: 0 14px 38px rgba(0,0,0,.14);
+    }
+
+    .nav-wrap {
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(124,240,198,.22);
+      border-radius: 12px;
+      background: rgba(124,240,198,.055);
+      letter-spacing: -.03em;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      overflow: clip;
+      padding-top: 132px;
+      padding-bottom: 88px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      right: -170px;
+      top: 14%;
+      border-radius: 50%;
+      background: rgba(124,240,198,.055);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      grid-template-columns: minmax(0,1.18fr) minmax(330px,.82fr);
+      gap: clamp(50px,7vw,100px);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .availability-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 28px;
+      padding: 8px 12px;
+      border: 1px solid rgba(124,240,198,.17);
+      border-radius: 999px;
+      color: #c7ddd5;
+      background: rgba(124,240,198,.045);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .availability-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(124,240,198,.08);
+    }
+
+    .hero h1 {
+      max-width: 790px;
+      margin-top: 14px;
+      margin-bottom: 24px;
+      font-size: clamp(4rem,8.3vw,7.4rem);
+    }
+
+    .hero-role {
+      display: block;
+      max-width: 680px;
+      margin-top: 18px;
+      color: transparent;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-size: clamp(1.35rem,2.7vw,2.2rem);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+
+    .hero-lead {
+      max-width: 720px;
+      color: #aeb9c4;
+      font-size: clamp(1.04rem,1.7vw,1.18rem);
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      align-items: center;
+      margin-top: 36px;
+    }
+
+    .btn {
+      border-radius: 14px;
+      letter-spacing: -.01em;
+    }
+
+    .btn.primary {
+      box-shadow: 0 12px 30px rgba(124,240,198,.12);
+    }
+
+    .btn.primary:hover {
+      box-shadow: 0 16px 34px rgba(124,240,198,.19);
+    }
+
+    .text-btn {
+      min-height: 46px;
+      padding-inline: 10px;
+      color: var(--muted);
+    }
+
+    .text-btn:hover {
+      color: var(--text);
+    }
+
+    .social-row {
+      margin-top: 30px;
+      gap: 10px;
+    }
+
+    .social-row a {
+      padding: 7px 10px;
+      border-radius: 9px;
+      border: 1px solid transparent;
+      transition: color .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .social-row a:hover {
+      border-color: var(--line);
+      background: rgba(255,255,255,.025);
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      padding: 16px;
+      border-color: rgba(255,255,255,.085);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.025), transparent 38%),
+        rgba(20,29,38,.92);
+      box-shadow: 0 34px 90px rgba(0,0,0,.34);
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3.7;
+      border-radius: 20px;
+      background: #0c1117;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 20%;
+      transform: scale(1.015);
+    }
+
+    .hero-photo-wrap::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 36%;
+      background: linear-gradient(to top, rgba(11,15,20,.54), transparent);
+      pointer-events: none;
+    }
+
+    .photo-badge {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      z-index: 1;
+      padding: 7px 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      color: #edf7f3;
+      background: rgba(8,13,17,.72);
+      backdrop-filter: blur(12px);
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .profile-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      padding: 22px 10px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .profile-card-head > div {
+      display: grid;
+      gap: 4px;
+    }
+
+    .profile-label {
+      color: var(--accent);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .13em;
+    }
+
+    .profile-card-head strong {
+      font-size: 1.1rem;
+    }
+
+    .profile-company {
+      color: var(--muted);
+      font-size: .82rem;
+      text-align: right;
+    }
+
+    .hero-card .quick-info {
+      padding: 18px 10px 8px;
+    }
+
+    .impact-strip {
+      padding-top: 4px;
+      padding-bottom: 44px;
+    }
+
+    .impact-card {
+      min-height: 132px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        linear-gradient(155deg, rgba(124,240,198,.055), rgba(141,184,255,.022)),
+        rgba(255,255,255,.012);
+    }
+
+    .section:not(.hero) {
+      position: relative;
+    }
+
+    .section:not(.hero) > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: currentColor;
+      opacity: .7;
+    }
+
+    .service-card,
+    .testimonial-card,
+    .contribution-box,
+    .card {
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.018);
+    }
+
+    .featured-project {
+      background:
+        radial-gradient(circle at 92% 0%, rgba(124,240,198,.075), transparent 25rem),
+        rgba(20,29,38,.94);
+    }
+
+    .featured-project-top {
+      min-height: 190px;
+    }
+
+    .game-icon {
+      box-shadow: 0 20px 50px rgba(0,0,0,.34);
+    }
+
+    .hire-card,
+    .contact-card {
+      box-shadow: 0 24px 70px rgba(0,0,0,.18);
+    }
+
+    @media (max-width: 900px) {
+      .site-header {
+        top: 8px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 620px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .site-header {
+        width: calc(100% - 20px);
+      }
+
+      .nav {
+        top: 66px;
+        box-shadow: 0 18px 45px rgba(0,0,0,.3);
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.25rem,17vw,5.2rem);
+      }
+
+      .hero-role {
+        margin-top: 14px;
+      }
+
+      .availability-pill {
+        font-size: .75rem;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .text-btn {
+        justify-content: flex-start;
+      }
+
+      .hero-photo-wrap {
+        aspect-ratio: 1 / .9;
+      }
+    }
+
     @media (max-width: 650px) {
       .featured-project-top {
         grid-template-columns: 82px 1fr;
@@ -719,25 +1100,34 @@
     <!-- HERO -->
     <section class="hero section" id="home">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-copy">
+          <div class="availability-pill">
+            <span class="availability-dot"></span>
+            Available for freelance & remote opportunities
+          </div>
+
           <div class="eyebrow">UNITY GAME DEVELOPER</div>
 
-          <h1>Muneeb Ihsan</h1>
+          <h1>
+            Muneeb Ihsan
+            <span class="hero-role">I build mobile games that feel polished.</span>
+          </h1>
 
           <p class="hero-lead">
-            I build polished mobile gameplay experiences with Unity and C#, with hands-on experience in
-            simulation, open-world systems, SDK integrations, monetization and performance optimization.
+            Unity & C# developer focused on production-ready mobile games, gameplay systems,
+            simulation and open-world experiences, SDK integrations and performance optimization.
           </p>
 
           <div class="hero-actions">
-            <a class="btn primary" href="#work">View My Work</a>
+            <a class="btn primary" href="#work">Explore My Work <span aria-hidden="true">↘</span></a>
+            <a class="btn secondary" href="#hire">Hire Me</a>
 
             <a
-              class="btn secondary"
+              class="btn text-btn"
               href="Muneeb_Ihsan_Resume.pdf"
               target="_blank"
               rel="noopener">
-              View Resume
+              View Resume ↗
             </a>
           </div>
 
@@ -761,37 +1151,42 @@
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="avatar" style="overflow:hidden;padding:0;">
+        <aside class="hero-card" aria-label="Developer profile summary">
+          <div class="hero-photo-wrap">
             <img
+              class="hero-photo"
               src="assets/profile.jpg"
               alt="Muneeb Ihsan"
-              style="width:100%;height:100%;object-fit:cover;display:block;"
+              fetchpriority="high"
             />
+            <div class="photo-badge">Unity • C#</div>
           </div>
 
-          <div class="status">
-            <span></span>
-            Available for opportunities
+          <div class="profile-card-head">
+            <div>
+              <span class="profile-label">CURRENTLY</span>
+              <strong>Unity Developer</strong>
+            </div>
+            <span class="profile-company">Brain Games Studio</span>
           </div>
 
           <div class="quick-info">
             <div>
-              <strong>Location</strong>
+              <strong>Based in</strong>
               <span>Lahore, Pakistan</span>
             </div>
 
             <div>
-              <strong>Focus</strong>
+              <strong>Specialized in</strong>
               <span>Mobile • Simulation • Open World</span>
             </div>
 
             <div>
-              <strong>Current Role</strong>
-              <span>Unity Developer — Brain Games Studio</span>
+              <strong>Experience</strong>
+              <span>3+ years hands-on Unity development</span>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
