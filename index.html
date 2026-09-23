@@ -325,6 +325,53 @@
       color: var(--text);
     }
 
+    .impact-strip {
+      padding: 34px 0 18px;
+      background: var(--bg);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .impact-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(124,240,198,.045), rgba(141,184,255,.025));
+    }
+
+    .impact-number {
+      display: block;
+      color: var(--accent);
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      margin-bottom: 8px;
+    }
+
+    .impact-label {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .role-badge {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(141,184,255,.08);
+      border: 1px solid rgba(141,184,255,.2);
+      color: var(--accent-2);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
     .whatsapp-float {
       position: fixed;
       right: 22px;
@@ -419,7 +466,8 @@
 
       .game-gallery,
       .testimonials-grid,
-      .services-grid {
+      .services-grid,
+      .impact-grid {
         grid-template-columns: 1fr;
       }
 
@@ -525,6 +573,34 @@
               <strong>Current Role</strong>
               <span>Unity Developer — Brain Games Studio</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- IMPACT -->
+    <section class="impact-strip" aria-label="Career highlights">
+      <div class="container">
+        <div class="impact-grid">
+          <div class="impact-card">
+            <span class="impact-number">4</span>
+            <span class="impact-label">Published mobile games showcased</span>
+          </div>
+
+          <div class="impact-card">
+            <span class="impact-number">1M+</span>
+            <span class="impact-label">Downloads on a published title</span>
+          </div>
+
+          <div class="impact-card">
+            <span class="impact-number">500K+</span>
+            <span class="impact-label">Downloads on another published title</span>
+          </div>
+
+          <div class="impact-card">
+            <span class="impact-number">3+ Years</span>
+            <span class="impact-label">Hands-on Unity development experience</span>
           </div>
         </div>
       </div>
@@ -792,6 +868,8 @@
                 <span>End-to-End Development</span>
                 <span>Published on Google Play</span>
               </div>
+
+              <div class="role-badge">End-to-End Unity Developer</div>
             </div>
           </div>
 
@@ -935,6 +1013,8 @@
                 <span>End-to-End Development</span>
                 <span>Published on Google Play</span>
               </div>
+
+              <div class="role-badge">End-to-End Unity Developer</div>
             </div>
           </div>
 
@@ -1055,6 +1135,8 @@
                 <span>Mobile Game</span>
                 <span>Published on Google Play</span>
               </div>
+
+              <div class="role-badge">Unity Developer</div>
             </div>
           </div>
 
@@ -1193,6 +1275,8 @@
                 <span>1M+ Downloads</span>
                 <span>Published on Google Play</span>
               </div>
+
+              <div class="role-badge">Unity Developer</div>
             </div>
           </div>
 
