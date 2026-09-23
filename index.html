@@ -382,6 +382,53 @@
       font-size: .92rem;
     }
 
+    .hire-card {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 36px;
+      align-items: center;
+      padding: 42px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top right, rgba(124,240,198,.11), transparent 35%),
+        linear-gradient(135deg, rgba(124,240,198,.035), rgba(141,184,255,.035));
+    }
+
+    .hire-card h2 {
+      margin-bottom: 14px;
+    }
+
+    .hire-card p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .hire-points {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+      color: var(--muted);
+    }
+
+    .hire-points span::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 900;
+      margin-right: 9px;
+    }
+
+    .hire-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .hire-actions .btn {
+      width: 100%;
+    }
+
     .role-badge {
       display: inline-flex;
       align-items: center;
@@ -499,6 +546,11 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .hire-card {
+        grid-template-columns: 1fr;
+        padding: 28px;
+      }
     }
   </style>
 
@@ -557,6 +609,7 @@
         <a href="#experience">Experience</a>
         <a href="#work">Work</a>
         <a href="#testimonials">Reviews</a>
+        <a href="#hire">Hire Me</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -1490,6 +1543,49 @@
 
         <div class="education-year">
           2018 — 2022
+        </div>
+      </div>
+    </section>
+
+
+    <!-- HIRE ME -->
+    <section class="section alt" id="hire">
+      <div class="container">
+        <div class="hire-card">
+          <div>
+            <div class="section-kicker">HIRE ME</div>
+            <h2>Need a Unity developer for your next game?</h2>
+
+            <p>
+              I’m available for freelance and remote Unity development work, including complete mobile games,
+              gameplay systems, debugging, SDK integrations, monetization, optimization and release support.
+            </p>
+
+            <div class="hire-points">
+              <span>Full Unity game development</span>
+              <span>Bug fixing, optimization & build troubleshooting</span>
+              <span>Firebase, ads & third-party SDK integration</span>
+              <span>Android / iOS mobile game support</span>
+            </div>
+          </div>
+
+          <div class="hire-actions">
+            <a class="btn primary" href="https://wa.me/923364570926" target="_blank" rel="noopener">
+              Chat on WhatsApp
+            </a>
+
+            <a class="btn secondary" href="https://www.upwork.com/freelancers/~01085b58d3dfa3778b" target="_blank" rel="noopener">
+              Hire Me on Upwork
+            </a>
+
+            <a class="btn secondary" href="https://www.fiverr.com/muneeb_ihsan/do-open-world-multiplayer-android-and-mobile-video-games-expert-developer" target="_blank" rel="noopener">
+              View Fiverr Gig
+            </a>
+
+            <a class="btn secondary" href="mailto:muneebihsan0506@gmail.com">
+              Email Me
+            </a>
+          </div>
         </div>
       </div>
     </section>
