@@ -244,49 +244,179 @@
       font-size: .82rem;
     }
 
+    .reviews-section {
+      overflow: hidden;
+    }
+
+    .reviews-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      align-items: end;
+    }
+
+    .reviews-heading .section-intro {
+      max-width: 690px;
+      margin-bottom: 0;
+    }
+
+    .reviews-platform-link {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: #c8d2dc;
+      background: rgba(255,255,255,.025);
+      font-size: .86rem;
+      font-weight: 750;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .reviews-platform-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(124,240,198,.3);
+      background: rgba(124,240,198,.04);
+    }
+
+    .reviews-platform-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(124,240,198,.08);
+    }
+
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      margin-top: 40px;
+      margin-top: 42px;
     }
 
     .testimonial-card {
+      position: relative;
+      overflow: hidden;
       padding: 26px;
       border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--card);
+      border-radius: 20px;
+      background:
+        linear-gradient(155deg, rgba(124,240,198,.025), transparent 42%),
+        var(--card);
     }
 
-    .testimonial-rating {
+    .testimonial-card::before {
+      content: "“";
+      position: absolute;
+      top: 2px;
+      right: 18px;
+      color: rgba(124,240,198,.055);
+      font-family: Georgia, serif;
+      font-size: 7.5rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonial-head {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 46px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .client-avatar {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(124,240,198,.18);
+      border-radius: 14px;
       color: var(--accent);
-      font-weight: 800;
-      letter-spacing: .08em;
-      margin-bottom: 14px;
+      background:
+        linear-gradient(145deg, rgba(124,240,198,.09), rgba(141,184,255,.05));
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+
+    .client-meta {
+      min-width: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .client-meta strong {
+      overflow: hidden;
+      color: var(--text);
+      font-size: .94rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .client-meta span {
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .testimonial-score {
+      display: grid;
+      justify-items: end;
+      gap: 2px;
+    }
+
+    .testimonial-stars {
+      color: var(--accent);
+      font-size: .72rem;
+      letter-spacing: .06em;
+    }
+
+    .testimonial-score strong {
+      color: var(--text);
+      font-size: .86rem;
     }
 
     .testimonial-card blockquote {
+      position: relative;
+      z-index: 1;
+      min-height: 104px;
       margin: 0;
-      color: var(--text);
+      color: #e8edf2;
       font-size: 1.02rem;
-      line-height: 1.7;
+      line-height: 1.75;
+      letter-spacing: -.01em;
     }
 
     .testimonial-footer {
+      position: relative;
+      z-index: 1;
       display: flex;
       justify-content: space-between;
       gap: 16px;
       align-items: center;
-      margin-top: 20px;
+      margin-top: 22px;
       padding-top: 16px;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: .9rem;
+      font-size: .8rem;
+    }
+
+    .review-type {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .testimonial-platform {
-      color: var(--accent-2);
-      font-weight: 700;
+      flex: 0 0 auto;
+      color: var(--accent);
+      font-weight: 850;
+      letter-spacing: -.02em;
     }
 
     .services-grid {
@@ -1109,6 +1239,20 @@
       .services-grid,
       .impact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .reviews-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .reviews-platform-link {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .testimonial-card blockquote {
+        min-height: 0;
       }
 
       .services-cta {
@@ -2067,64 +2211,125 @@
 
 
     <!-- TESTIMONIALS -->
-    <section class="section" id="testimonials">
+    <section class="section reviews-section" id="testimonials">
       <div class="container">
-        <div class="section-kicker">CLIENT REVIEWS</div>
-        <h2>What clients say</h2>
-        <p class="section-intro">
-          Selected verified feedback from clients I have worked with on Fiverr.
-        </p>
+        <div class="reviews-heading">
+          <div>
+            <div class="section-kicker">CLIENT REVIEWS</div>
+            <h2>Trusted by clients.</h2>
+            <p class="section-intro">
+              Selected feedback from Unity development projects delivered through Fiverr.
+            </p>
+          </div>
+
+          <a
+            class="reviews-platform-link"
+            href="https://www.fiverr.com/muneeb_ihsan/do-open-world-multiplayer-android-and-mobile-video-games-expert-developer"
+            target="_blank"
+            rel="noopener">
+            <span class="reviews-platform-dot"></span>
+            View Fiverr profile ↗
+          </a>
+        </div>
 
         <div class="testimonials-grid">
           <article class="testimonial-card">
-            <div class="testimonial-rating">★★★★★ 5.0</div>
+            <div class="testimonial-head">
+              <div class="client-avatar">SJ</div>
+              <div class="client-meta">
+                <strong>samyak_jain04</strong>
+                <span>Fiverr Client</span>
+              </div>
+              <div class="testimonial-score">
+                <span class="testimonial-stars">★★★★★</span>
+                <strong>5.0</strong>
+              </div>
+            </div>
+
             <blockquote>
               “He delivered high-quality work that was completely bug-free and demonstrated a deep understanding of the project requirements.”
             </blockquote>
+
             <div class="testimonial-footer">
-              <span>samyak_jain04</span>
+              <span class="review-type">Unity Development</span>
               <a class="testimonial-platform"
                  href="https://www.fiverr.com/muneeb_ihsan/do-open-world-multiplayer-android-and-mobile-video-games-expert-developer"
-                 target="_blank" rel="noopener">Fiverr ↗</a>
+                 target="_blank" rel="noopener">fiverr. ↗</a>
             </div>
           </article>
 
           <article class="testimonial-card">
-            <div class="testimonial-rating">★★★★★ 5.0</div>
+            <div class="testimonial-head">
+              <div class="client-avatar">K</div>
+              <div class="client-meta">
+                <strong>koboplay</strong>
+                <span>Fiverr Client</span>
+              </div>
+              <div class="testimonial-score">
+                <span class="testimonial-stars">★★★★★</span>
+                <strong>5.0</strong>
+              </div>
+            </div>
+
             <blockquote>
               “Muneeb is an exceptional Unity Developer! His skills in creating engaging and smooth gameplay experiences are top-notch.”
             </blockquote>
+
             <div class="testimonial-footer">
-              <span>koboplay</span>
+              <span class="review-type">Gameplay Development</span>
               <a class="testimonial-platform"
                  href="https://www.fiverr.com/muneeb_ihsan/do-open-world-multiplayer-android-and-mobile-video-games-expert-developer"
-                 target="_blank" rel="noopener">Fiverr ↗</a>
+                 target="_blank" rel="noopener">fiverr. ↗</a>
             </div>
           </article>
 
           <article class="testimonial-card">
-            <div class="testimonial-rating">★★★★★ 5.0</div>
+            <div class="testimonial-head">
+              <div class="client-avatar">HM</div>
+              <div class="client-meta">
+                <strong>hmda111</strong>
+                <span>Fiverr Client</span>
+              </div>
+              <div class="testimonial-score">
+                <span class="testimonial-stars">★★★★★</span>
+                <strong>5.0</strong>
+              </div>
+            </div>
+
             <blockquote>
               “An outstanding programmer who consistently delivers high-quality results and demonstrates exceptional technical competence.”
             </blockquote>
+
             <div class="testimonial-footer">
-              <span>hmda111</span>
+              <span class="review-type">Programming & Quality</span>
               <a class="testimonial-platform"
                  href="https://www.fiverr.com/muneeb_ihsan/do-open-world-multiplayer-android-and-mobile-video-games-expert-developer"
-                 target="_blank" rel="noopener">Fiverr ↗</a>
+                 target="_blank" rel="noopener">fiverr. ↗</a>
             </div>
           </article>
 
           <article class="testimonial-card">
-            <div class="testimonial-rating">★★★★★ 5.0</div>
+            <div class="testimonial-head">
+              <div class="client-avatar">D</div>
+              <div class="client-meta">
+                <strong>dashiell_04</strong>
+                <span>Fiverr Client</span>
+              </div>
+              <div class="testimonial-score">
+                <span class="testimonial-stars">★★★★★</span>
+                <strong>5.0</strong>
+              </div>
+            </div>
+
             <blockquote>
               “He explained everything clearly, guided me through the process, and made sure the game turned out exactly the way I imagined.”
             </blockquote>
+
             <div class="testimonial-footer">
-              <span>dashiell_04</span>
+              <span class="review-type">Communication & Delivery</span>
               <a class="testimonial-platform"
                  href="https://www.fiverr.com/muneeb_ihsan/do-open-world-multiplayer-android-and-mobile-video-games-expert-developer"
-                 target="_blank" rel="noopener">Fiverr ↗</a>
+                 target="_blank" rel="noopener">fiverr. ↗</a>
             </div>
           </article>
         </div>
