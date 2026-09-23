@@ -31,8 +31,45 @@
       grid-template-columns: 128px 1fr;
       gap: 26px;
       align-items: center;
-      padding: 30px;
+      padding: 30px 210px 30px 30px;
+      border-bottom: 0;
+      cursor: pointer;
+      position: relative;
+      transition: background .2s ease;
+    }
+
+    .featured-project-top:hover {
+      background: rgba(255,255,255,.025);
+    }
+
+    .featured-project-top::after {
+      content: "View details  ↓";
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent);
+      font-size: .88rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+      padding: 9px 12px;
+      border: 1px solid rgba(124,240,198,.25);
+      border-radius: 999px;
+      background: rgba(124,240,198,.06);
+      white-space: nowrap;
+    }
+
+    .featured-project.open .featured-project-top {
       border-bottom: 1px solid var(--line);
+    }
+
+    .featured-project.open .featured-project-top::after {
+      content: "Hide details  ↑";
+    }
+
+    .featured-project-top:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -3px;
     }
 
     .game-icon {
@@ -86,10 +123,20 @@
     }
 
     .featured-project-body {
-      display: grid;
+      display: none;
       grid-template-columns: 1.05fr .95fr;
       gap: 30px;
       padding: 30px;
+    }
+
+    .featured-project.open .featured-project-body {
+      display: grid;
+      animation: projectReveal .24s ease;
+    }
+
+    @keyframes projectReveal {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .contribution-box {
@@ -235,7 +282,15 @@
       .featured-project-top {
         grid-template-columns: 82px 1fr;
         gap: 18px;
-        padding: 22px;
+        padding: 22px 22px 66px;
+      }
+
+      .featured-project-top::after {
+        left: 22px;
+        right: auto;
+        top: auto;
+        bottom: 18px;
+        transform: none;
       }
 
       .game-icon {
@@ -496,6 +551,7 @@
         <p class="section-intro">
           Selected production work showing my Unity development, gameplay implementation,
           mobile optimization and end-to-end release experience across published mobile games.
+          <strong style="color:var(--text);">Click any project to view screenshots and full details.</strong>
         </p>
 
         <!-- FEATURED PROJECT -->
@@ -1139,5 +1195,29 @@
 
   <!-- Existing site script -->
   <script src="script.js"></script>
+
+  <script>
+    document.querySelectorAll('.featured-project').forEach((project) => {
+      const header = project.querySelector('.featured-project-top');
+      if (!header) return;
+
+      header.setAttribute('role', 'button');
+      header.setAttribute('tabindex', '0');
+      header.setAttribute('aria-expanded', 'false');
+
+      const toggleProject = () => {
+        const isOpen = project.classList.toggle('open');
+        header.setAttribute('aria-expanded', String(isOpen));
+      };
+
+      header.addEventListener('click', toggleProject);
+      header.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggleProject();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
