@@ -1,12 +1,14 @@
 :root {
-  --bg: #0b0f14;
-  --bg-soft: #111820;
-  --card: #141d26;
-  --line: #263241;
-  --text: #f5f7fa;
-  --muted: #9aa8b6;
-  --accent: #7cf0c6;
-  --accent-2: #8db8ff;
+  --bg: #080b14;
+  --bg-soft: #0d1220;
+  --card: #111827;
+  --card-2: #151d2e;
+  --line: #28334b;
+  --text: #f7f8fc;
+  --muted: #9da9bb;
+  --accent: #8b7cff;
+  --accent-2: #39e6c3;
+  --accent-3: #69b7ff;
   --max: 1160px;
 }
 
@@ -411,5 +413,118 @@ footer {
   .back-to-top,
   .nav {
     transition: none !important;
+  }
+}
+
+
+/* MIDNIGHT AURORA BASE */
+body {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(139,124,255,.13), transparent 30rem),
+    radial-gradient(circle at 92% 10%, rgba(57,230,195,.09), transparent 28rem),
+    linear-gradient(180deg, #080b14 0%, #0a0f1a 48%, #080b14 100%);
+}
+
+.alt {
+  background:
+    linear-gradient(180deg, rgba(139,124,255,.025), rgba(57,230,195,.018)),
+    var(--bg-soft);
+}
+
+.site-header {
+  background: rgba(8,11,20,.78);
+  border-color: rgba(139,124,255,.12);
+  box-shadow: 0 16px 40px rgba(0,0,0,.22);
+}
+
+.brand {
+  background: linear-gradient(145deg, rgba(139,124,255,.13), rgba(57,230,195,.07));
+  border-color: rgba(139,124,255,.26);
+}
+
+.brand span,
+.eyebrow,
+.section-kicker,
+.education-year,
+.project-index {
+  color: var(--accent-2);
+}
+
+.btn.primary {
+  color: #080b14;
+  background: linear-gradient(110deg, var(--accent), var(--accent-2));
+  box-shadow:
+    0 12px 30px rgba(139,124,255,.18),
+    0 8px 24px rgba(57,230,195,.08);
+}
+
+.btn.primary:hover {
+  box-shadow:
+    0 16px 38px rgba(139,124,255,.25),
+    0 10px 28px rgba(57,230,195,.12);
+}
+
+.btn.secondary {
+  border-color: rgba(139,124,255,.19);
+  background: linear-gradient(145deg, rgba(139,124,255,.045), rgba(57,230,195,.02));
+}
+
+.btn.secondary:hover {
+  border-color: rgba(57,230,195,.32);
+  background: linear-gradient(145deg, rgba(139,124,255,.08), rgba(57,230,195,.045));
+}
+
+.social-row a:hover {
+  color: var(--accent-2);
+}
+
+.card,
+.project-card,
+.hero-card,
+.contact-card {
+  border-color: rgba(139,124,255,.14);
+}
+
+.card,
+.project-card {
+  background:
+    linear-gradient(150deg, rgba(139,124,255,.035), rgba(57,230,195,.018) 55%, transparent),
+    var(--card);
+}
+
+.tags span {
+  border-color: rgba(139,124,255,.14);
+  background: rgba(139,124,255,.035);
+}
+
+.timeline-item {
+  border-color: rgba(139,124,255,.12);
+}
+
+.contact-card {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(139,124,255,.11), transparent 38%),
+    radial-gradient(circle at 88% 100%, rgba(57,230,195,.08), transparent 34%),
+    linear-gradient(135deg, rgba(139,124,255,.04), rgba(57,230,195,.025));
+}
+
+.back-to-top {
+  border-color: rgba(139,124,255,.18);
+  background: rgba(13,18,32,.9);
+}
+
+.back-to-top:hover {
+  border-color: rgba(57,230,195,.38);
+}
+
+@media (max-width: 700px) {
+  .menu-btn {
+    border-color: rgba(139,124,255,.18);
+    background: linear-gradient(145deg, rgba(139,124,255,.08), rgba(57,230,195,.035));
+  }
+
+  .nav {
+    border-color: rgba(139,124,255,.16);
+    background: rgba(13,18,32,.97);
   }
 }
